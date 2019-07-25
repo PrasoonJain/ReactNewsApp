@@ -5,6 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  background-color: #e6e6e6 !important;
+}
+
+.feed {
+  padding-top: 70px !important;
 }
 
 code {
