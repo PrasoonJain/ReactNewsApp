@@ -9,7 +9,7 @@ class Feed extends Component {
     this.handleNewFeed=this.handleNewFeed.bind(this)
     this.state={
         items:[],
-        query : "bitcoin"
+        query : ""
     }
     
 }
@@ -30,6 +30,7 @@ class Feed extends Component {
         });
         }
         else{
+            if(query!=""){
             fetch('https://newsapi.org/v2/everything?apiKey=ebc5bc0d7ff04e13b9de398d5725ba83&q=' + query)
             .then(res=>res.json())
             .then((json)=>{
@@ -38,6 +39,18 @@ class Feed extends Component {
                 console.log(this.state.items)
              
             });
+        }
+        else{
+            fetch('https://newsapi.org/v2/top-headlines?apiKey=ebc5bc0d7ff04e13b9de398d5725ba83&country=in&category='+ query)
+        
+            .then(res=>res.json())
+            .then((json)=>{
+                this.setState({ items: json.articles })
+                this.setState({query:query})
+                console.log(this.state.items)
+             
+            });
+        }
         }
        
     }
